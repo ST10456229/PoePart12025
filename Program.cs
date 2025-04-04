@@ -6,18 +6,24 @@ using System.Collections.Generic;
 using System.Threading;
 
 namespace PoePart1
+
+
 {
+    // -- FIELDS --
     class SoundPlayerProgram
     {
         static List<string> modules = new List<string>();
         static List<string> courses = new List<string>();
+
+
+       // -- MAIN METHOD --
 
         static void Main()
         {
             
             DisplayLogo();
 
-            
+            //-- PLAYS AUDIO FILE METHOD --
             if (OperatingSystem.IsWindows())
             {
                 SoundPlayer MyMusic = new SoundPlayer("POEaudio.wav");
@@ -25,7 +31,7 @@ namespace PoePart1
                 MyMusic.PlayLooping();
             }
 
-            
+            // -- WELCOMES USER METHOD --
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Welcome! Please enter your name: ");
@@ -37,16 +43,22 @@ namespace PoePart1
             Console.ResetColor();
 
             
+            //    -- USER INTERACTION METHOD --
+            
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("You: ");
                 string userInput = Console.ReadLine().ToLower();
 
+                //     -- IS A DELAYED RESPOND METHOD --
+
                 Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.WriteLine("...thinking...");
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
 
+
+               //-- USER QUESTIONS AND CHATBOT ANSWERS METHOD --
                 if (userInput == "how are you?")
                 {
                     Console.ForegroundColor = ConsoleColor.Magenta;
@@ -122,6 +134,8 @@ namespace PoePart1
                 Console.ResetColor();
             }
         }
+
+        //     -- DISPLAYS THE LOGO  METHOD--
 
         static void DisplayLogo()
         {
